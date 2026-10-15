@@ -55,10 +55,13 @@ Document title opens Rename Document; the account badge opens Options › Genera
 | Screen readers (VoiceOver, Narrator, Orca) | AccessKit on; the document canvas describes paragraphs, headings (level), list items, tables, links, pictures (alt text) and the caret and selection, for the pages on screen (#488); Windows Magnifier follows the caret, also onto an empty line after Enter or Shift+Enter (#1119); not yet tried with real screen readers | full | 50% | 5–8 |
 | Right-to-left (mirrored) interface | ❌ | ✅ (Arabic, Hebrew Word) | 0% | in localization |
 
+> **Header/footer preset update:** 2026-10-15 · Three columns creates a one-row, three-cell borderless table (#2197). The active header/footer story has screen-only cell guides while editing, even with View Gridlines off. Closing the story removes automatic guides; explicit View Gridlines still outlines every table. No document border is changed by showing these guides. Readiness estimates unchanged.
+
 ## Revision history
 
 | Date | Change | Summary |
 |---|---|---|
+| 2026-10-15 | trivial | Three-column header/footer table preset and automatic screen-only cell guides while editing (#2197) |
 | 2026-10-13 | trivial | New/Modify Table Style: No Border on a part that inherits its lines hides them; emptying the font box makes the part's font inherited again (#1288) |
 | 2026-10-14 | trivial | Tab stops edited on the ruler: corner kind selector, click to set, drag to move or off to clear, per-kind markers mirrored for RTL; each gesture one `para.tabs` call and one undo step; Rulers 85% → 90% |
 | 2026-10-12 | trivial | Tables on the page: one selected cell (Select Cell, or a click along its left edge) is a cell selection when its border is dragged: the border moves in its row only (#962) |

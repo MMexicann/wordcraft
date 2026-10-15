@@ -62,6 +62,8 @@ formatting use the existing editing primitives. Tests: `sample_text_formulas_exp
 | Change Case (Shift+F3, Home › Aa) (tracking on) | Word shows no insertion or deletion markup (checked with Formatting markup set to none, so Word may record it as a hidden formatting revision). **Differs:** WordCraft records the changed letters as a tracked deletion of the old and insertion of the new, since case isn't a run property a formatting revision could hold; Reject All restores the old case, Accept All keeps the new. Your own tracked insertion is rewritten in place; already-deleted text is left alone and doesn't count (with tracking off too), so changing case again (or Shift+F3) works from the visible text. Refused in content locked against editing | `tests_revision_checks::tracked_change_case_rejects_back_to_the_original_case`, `tracked_change_case_of_own_insertion_stays_an_insertion`, `tracked_change_case_twice_reads_only_the_live_text`, `tracked_change_case_handles_sharp_s_and_mixed_formatting`, `change_case_refuses_content_locked_against_editing` |
 | Unlink Fields (Ctrl+Shift+F9) (tracking on) | not tracked, like Word: the field's result stays as ordinary text. Refused in content locked against editing | `tests_revision_checks::tracked_unlink_keeps_the_result_as_plain_text`, `unlink_refuses_a_field_in_content_locked_against_editing` |
 
+> **Three-column preset update:** 2026-10-15 · `blankThree` headers/footers start the caret in the first of three table cells (#2197). `text.tab` reaches the next cell and `text.insert` edits it through the existing command path. `crates/engine/tests/three_column_headers.rs` checks cell navigation, independent formatting, preset/text undo/redo and repeated DOCX save/reopen.
+
 ## Editing keys
 
 Word's documented keyboard behaviour (Microsoft's shortcut list, feature names only); the
@@ -196,6 +198,7 @@ Word.
 
 | Date | Change | Summary |
 |---|---|---|
+| 2026-10-15 | trivial | Three-column header/footer preset: first-cell caret, Tab navigation, independent formatting and undo/redo regression coverage (#2197) |
 | 2026-10-14 | trivial | Shift+Delete cuts the selection, and does nothing without one, on macOS and Linux too, as in Word for Windows (#1669); Shift+Backspace already erased (#707) |
 | 2026-10-13 | trivial | Select All then Delete or Backspace removes a table the document starts with (#1198) |
 | 2026-10-12 | trivial | Editing keys: Down and Up from the start of a line beside a table go into it instead of skipping it (#1007) |
